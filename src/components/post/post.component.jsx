@@ -1,20 +1,16 @@
 import React from 'react';
 
 import Card from '../card/card.component';
+import withHOCData from '../with-HOC-data/with-HOC-data'
 
-import useFetch from '../../effects/use-fetch.effect';
-
-const Post = ({ postId }) => {
-  const post = useFetch(
-    `https://jsonplaceholder.typicode.com/posts?id=${postId}`
-  );
+const Post = ({ data }) => {
 
   return (
     <Card>
-      {post ? (
+      {data ? (
         <div>
-          <h3> {post.title} </h3>
-          <p> {post.body} </p>
+          <h3> {data.title} </h3>
+          <p> {data.body} </p>
         </div>
       ) : (
         <p> No post found </p>
@@ -23,4 +19,4 @@ const Post = ({ postId }) => {
   );
 };
 
-export default Post;
+export default withHOCData(Post);

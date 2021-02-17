@@ -8,8 +8,8 @@ import './App.css';
 const App = props => {
   return (
     <div className='App'>
-      <User userId={5} />
-      <Post postId={15} />
+      <User dataSource={`https://jsonplaceholder.typicode.com/users?id=1`} />
+      <Post dataSource={`https://jsonplaceholder.typicode.com/posts?id=1`} />
     </div>
   );
 };
